@@ -1,3 +1,5 @@
+import random
+
 # 1) What did you see on line 1?
 # What was the smallest number you could have seen, what was the largest?
 # Answer: The smallest would be 5 and the largest would be 20
@@ -11,3 +13,5 @@
 # 3) What did you see on line 3?
 # What was the smallest number you could have seen, what was the largest?
 # Answer : The smallest number i've seen is 2.530653600129431 and the largest is 5.413129916887714
+
+print(random.randint(1, 100))
