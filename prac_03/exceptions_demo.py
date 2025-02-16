@@ -9,6 +9,8 @@ Answer the following questions:
 try:
     numerator = int(input("Enter the numerator: "))
     denominator = int(input("Enter the denominator: "))
+    while denominator == 0:
+        denominator = int(input("Enter the denominator: "))
     fraction = numerator / denominator
     print(fraction)
 except ValueError:
@@ -21,3 +23,5 @@ print("Finished.")
 # Answer: This error will occur whenever the user input is not a valid number like if the user input a string
 # 2) When will a ZeroDivisionError occur?
 # Answer: The error will occur when the user input the denominator is 0
+# 3) Could you change the code to avoid the possibility of a ZeroDivisionError?
+# Answer: Added a while loop so that the user input is not 0
