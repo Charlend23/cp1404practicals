@@ -19,3 +19,5 @@ print("Finished.")
 
 # 1) When will a ValueError occur?
 # Answer: This error will occur whenever the user input is not a valid number like if the user input a string
+# 2) When will a ZeroDivisionError occur?
+# Answer: The error will occur when the user input the denominator is 0
