@@ -13,14 +13,7 @@ def main():
             word_counter[counter] += 1
         else:
             word_counter[counter] = 1
-
-    # for counter in texts:
-    #     counter.lower()
-    #     if counter in word_counter:
-    #         word_counter[counter] += 1
-    #     else:
-    #         word_counter[counter] = 1
-    # for word, count in word_counter.items():
-    #     print(f"{word} : {count}")
+    for word, count in word_counter.items():
+        print(f"{word} : {count}")
 
 main()
