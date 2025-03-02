@@ -9,7 +9,7 @@ FILENAME = "wimbledon.csv"
 
 def main():
     champions_data = read_data_file(FILENAME)
-    print(champions_data)
+    champions_count = count_winnings(champions_data)
 
 def read_data_file(file):
     data = []
@@ -21,5 +21,14 @@ def read_data_file(file):
             champions = category[2]
             data.append((countries,champions))
     return data
+
+def count_winnings(data):
+    champion_counter = {}
+    for countries, champions in data:
+        if champions in champion_counter:
+            champion_counter[champions] += 1
+        else:
+            champion_counter[champions] = 1
+    return champion_counter
 
 main()
