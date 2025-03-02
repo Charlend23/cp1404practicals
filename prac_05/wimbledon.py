@@ -10,6 +10,7 @@ FILENAME = "wimbledon.csv"
 def main():
     champions_data = read_data_file(FILENAME)
     champions_count = count_winnings(champions_data)
+    list_of_countries = extract_countries(champions_data)
 
 def read_data_file(file):
     data = []
@@ -30,5 +31,13 @@ def count_winnings(data):
         else:
             champion_counter[champions] = 1
     return champion_counter
+
+def extract_countries(data):
+    countries_list = []
+    for country, champions in data:
+        if country not in countries_list:
+            countries_list.append(country)
+    countries_string = ", ".join(countries_list)
+    return countries_string
 
 main()
