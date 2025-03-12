@@ -2,7 +2,6 @@
 Guitar
 Estimate = 50 Minutes
 """
-CURRENT_YEAR = 2025
 
 class Guitar:
     def __init__(self, name = "", year = 0, cost = 0):
@@ -14,7 +13,7 @@ class Guitar:
         return f"{self.name} ({self.year}) : ${self.cost}"
 
     def get_age(self):
-        return CURRENT_YEAR - self.year
+        return 2022 - self.year
 
     def is_vintage(self):
         return self.get_age() >= 50
