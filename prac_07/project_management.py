@@ -33,7 +33,7 @@ def main():
         user_input = input("Enter Choice: ").lower()
     save_user_input = input("Do you want to save your projects before quitting? (y/n): ").lower()
     if save_user_input.lower() == 'y':
-        print()
+        save_projects(FILENAME, projects)
     print("Thank you")
 
 def menu():
@@ -89,5 +89,13 @@ def add_new_project(projects):
     completion_percentage = int(input("Enter completion percentage: "))
     new_project = Project(name, start_date, priority, cost_estimate, completion_percentage)
     projects.append(new_project)
+
+def update_project(projects):
+    display_projects(projects)
+    project_number = int(input("Select project to update (0-based): "))
+    if 0 <= project_number < len(projects):
+        completion_percentage = input("Enter new completion percentage (leave blank to keep current): ")
+        priority = input("Enter new priority (leave blank to keep current): ")
+        projects[project_number].update(completion_percentage=int(completion_percentage) if completion_percentage else None,priority=int(priority) if priority else None)
 
 main()

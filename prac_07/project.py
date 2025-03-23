@@ -7,7 +7,7 @@ class Project:
         self.completion = completion
 
     def __str__(self):
-        return f"{self.name} in {self.date} top {self.priority} ${self.cost} and {self.completion}%"
+        return f"{self.name}, Started at: {self.date}, Priority at: {self.priority}, at the cost of: ${self.cost} and The completion rate is: {self.completion}%"
 
     def __lt__(self, other):
         return self.priority < other.priority
