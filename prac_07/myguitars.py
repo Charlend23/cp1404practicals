@@ -8,6 +8,7 @@ def main():
         for line in in_file:
             name, year, cost = line.strip().split(",")
             guitars.append(Guitar(name, year, cost))
+    guitars.sort()
     for guitar in guitars:
         print(f"{guitar.name} is made in {guitar.year} and it cost ${guitar.cost}")
 
