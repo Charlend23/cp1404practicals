@@ -8,18 +8,13 @@ from project import Project
 FILENAME = "projects.txt"
 
 def main():
-    projects = []
-    with open(FILENAME, "r") as in_file:
-        lines = in_file.readlines()
-        for line in lines[1:]:
-            name, start_date, priority, cost_estimate, completion_percentage = line.strip().split("\t")
-            project = Project(name, start_date, int(priority), float(cost_estimate), int(completion_percentage))
-            projects.append(project)
+    projects = [load_projects(FILENAME)]
     menu()
     user_input = input("Enter Choice: ").lower()
     while user_input != "q":
         if user_input == "l":
-            print()
+            filename = input("Enter filename to load projects from: ")
+            projects = [load_projects(filename)]
         elif user_input == "s":
             print()
         elif user_input == "d":
@@ -49,4 +44,13 @@ def menu():
           "Update project (u)\n"
           "Quit (q)")
 
+def load_projects(file):
+    projects = []
+    with open(file, "r") as in_file:
+        lines = in_file.readlines()
+        for line in lines[1:]:
+            name, start_date, priority, cost_estimate, completion_percentage = line.strip().split("\t")
+            project = Project(name, start_date, int(priority), float(cost_estimate), int(completion_percentage))
+            projects.append(project)
+    return projects
 main()
