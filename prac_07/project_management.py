@@ -16,7 +16,8 @@ def main():
             filename = input("Enter filename to load projects from: ")
             projects = [load_projects(filename)]
         elif user_input == "s":
-            print()
+            filename = input("Enter filename to save projects to: ")
+            save_projects(filename, projects)
         elif user_input == "d":
             print()
         elif user_input == "f":
@@ -53,4 +54,12 @@ def load_projects(file):
             project = Project(name, start_date, int(priority), float(cost_estimate), int(completion_percentage))
             projects.append(project)
     return projects
+
+def save_projects(file, projects):
+    with open(file, "w") as in_file:
+        in_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        for project in projects:
+            in_file.write(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
+
+
 main()
