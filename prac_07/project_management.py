@@ -16,7 +16,28 @@ def main():
             project = Project(name, start_date, int(priority), float(cost_estimate), int(completion_percentage))
             projects.append(project)
     menu()
-    user_input = input("Enter choice: ").lower()
+    user_input = input("Enter Choice: ").lower()
+    while user_input != "q":
+        if user_input == "l":
+            print()
+        elif user_input == "s":
+            print()
+        elif user_input == "d":
+            print()
+        elif user_input == "f":
+            print()
+        elif user_input == "n":
+            print()
+        elif user_input == "u":
+            print()
+        else:
+            print("Invalid choice.")
+        menu()
+        user_input = input("Enter Choice: ").lower()
+    save_user_input = input("Do you want to save your projects before quitting? (y/n): ").lower()
+    if save_user_input.lower() == 'y':
+        print()
+    print("Thank you")
 
 def menu():
         return print("Menu:\n"
@@ -25,6 +46,7 @@ def menu():
           "Display projects (d)\n"
           "Filter projects by date (f)\n"
           "Add new project (n)\n"
-          "Update project (u)\n")
+          "Update project (u)\n"
+          "Quit (q)")
 
 main()
