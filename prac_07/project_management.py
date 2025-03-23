@@ -2,7 +2,7 @@
 Project Management
 Estimate : 60 Minutes
 """
-
+import datetime
 from project import Project
 
 FILENAME = "projects.txt"
@@ -21,7 +21,8 @@ def main():
         elif user_input == "d":
             display_projects(projects)
         elif user_input == "f":
-            print()
+            date_input = input("Show projects that start after date (dd/mm/yyyy): ")
+            filter_date(projects, date_input)
         elif user_input == "n":
             print()
         elif user_input == "u":
@@ -73,4 +74,10 @@ def display_projects(projects):
     for project in complete:
         print(project)
 
+def filter_date(projects, date):
+    format_date = datetime.datetime.strptime(date, "%d/%m/%Y").date()
+    updated_date = [p for p in projects if p.start_date > format_date]
+    updated_date.sort(key=lambda x: x.start_date)
+    for project in updated_date:
+        print(project)
 main()
