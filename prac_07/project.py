@@ -8,3 +8,9 @@ class Project:
 
     def __str__(self):
         return f"{self.name} in {self.date} top {self.priority} ${self.cost} and {self.completion}%"
+
+    def __lt__(self, other):
+        return self.priority < other.priority
+
+    def is_complete(self):
+        return self.completion >= 100

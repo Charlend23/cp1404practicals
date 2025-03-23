@@ -8,18 +8,18 @@ from project import Project
 FILENAME = "projects.txt"
 
 def main():
-    projects = [load_projects(FILENAME)]
+    projects = load_projects(FILENAME)
     menu()
     user_input = input("Enter Choice: ").lower()
     while user_input != "q":
         if user_input == "l":
             filename = input("Enter filename to load projects from: ")
-            projects = [load_projects(filename)]
+            projects = load_projects(filename)
         elif user_input == "s":
             filename = input("Enter filename to save projects to: ")
             save_projects(filename, projects)
         elif user_input == "d":
-            print()
+            display_projects(projects)
         elif user_input == "f":
             print()
         elif user_input == "n":
@@ -61,5 +61,16 @@ def save_projects(file, projects):
         for project in projects:
             in_file.write(f"{project.name}\t{project.start_date}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
 
+def display_projects(projects):
+    incomplete = [p for p in projects if not p.is_complete()]
+    complete = [p for p in projects if p.is_complete()]
+    print("\nIncomplete Projects:")
+    incomplete.sort()
+    complete.sort()
+    for project in incomplete:
+        print(project)
+    print("\nCompleted Projects:")
+    for project in complete:
+        print(project)
 
 main()
