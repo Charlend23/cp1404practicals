@@ -1,5 +1,4 @@
 from guitar import Guitar
-from prac_04.list_exercise import user_input
 
 FILENAME = "guitars.csv"
 
@@ -18,4 +17,8 @@ def main():
         guitar_cost = float(input("Cost: $"))
         guitars.append(Guitar(guitar_name, guitar_year, guitar_cost))
         guitar_name = input("Enter Guitar Name: ")
+    with open(FILENAME, "w") as out_file:
+        for guitar in guitars:
+            out_file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
+
 main()
