@@ -11,13 +11,20 @@ class MilesToKmApp(App):
         return self.root
 
     def handle_calculation(self):
-        number = float(self.root.ids.input_miles.text)
+        number = self.get_valid_input()
         result = number * MILES_TO_KM
         self.root.ids.output_label.text = str(result)
 
     def handle_increment(self, change):
-        number = int(self.root.ids.input_miles.text) + change
+        number = self.get_valid_input() + change
         self.root.ids.input_miles.text = str(number)
         self.handle_calculation()
+
+    def get_valid_input(self):
+        try:
+            number = float(self.root.ids.input_miles.text)
+            return number
+        except ValueError:
+            return 0
 
 MilesToKmApp().run()
