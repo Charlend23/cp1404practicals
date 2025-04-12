@@ -69,3 +69,18 @@ doctest.testmod()
 # and one more that you decide is a useful test.
 # Run your doctests and watch the tests fail.
 # Then write the body of the function so that the tests pass.
+
+def format_phrase_as_sentence(phrase):
+    """
+    This function will check if the phrase inside is the same as the output
+    >>> format_phrase_as_sentence("hello")
+    'Hello.'
+    >>> format_phrase_as_sentence("It is an ex parrot.")
+    'It is an ex parrot.'
+    >>> format_phrase_as_sentence("Parrot name is chailen")
+    'Parrot name is chailen.'
+    """
+    sentence = phrase.capitalize() # used a capitalize method to make the first word in uppercase
+    if not sentence.endswith("."): # if statement to check whether the last part of a phrase ends with a fullstop or no
+        sentence += "." # this will add fullstop to the end of the sentence
+    return sentence
