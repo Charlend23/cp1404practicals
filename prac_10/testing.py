@@ -46,6 +46,9 @@ def run_tests():
     # using the value passed in or the default
     # You should test both of these
     car = Car(fuel=10)
+    assert car.fuel == 10, "There should be 10 fuel inside the car"
+    car = Car()
+    assert car.fuel == 0, "Car should have no fuel to start"
 
 
 run_tests()
