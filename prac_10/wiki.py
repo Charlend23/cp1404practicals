@@ -14,3 +14,6 @@ def main():
         except wikipedia.DisambiguationError as i:
             print(f"\nWe need a more specific title. Try one of the following, or a new search:")
             print(f"{i.options[:5] + ['...']}\n")
+
+        except wikipedia.PageError:
+            print(f'\nPage id "{user_search}" does not match any pages. Try another id!')
